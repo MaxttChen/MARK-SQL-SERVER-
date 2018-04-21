@@ -1,2 +1,28 @@
 # MARK-SQL-SERVER-
 使用 SQL SERVER 的一些笔记
+
+1.远程链接数据库/跨服务器链接数据库
+
+数据库1:192.168.3.12
+
+数据库2:192.168.3.23\SQL2008R2
+
+实现数据库1上可以直接访问数据库2上的表:
+EXEC  sp_addlinkedserver
+@server='XDERP',   --链接服务器别名
+@srvproduct='',
+@provider='SQLOLEDB',
+@datasrc='192.168.3.23\SQL2008R2'  --要访问的的数据库所在的服务器的ip
+GO
+
+EXEC sp_addlinkedsrvlogin
+'DBMES',                  --链接服务器别名
+'false', 
+ NULL,
+'sa',                     --要访问的数据库的用户              
+'xxxx'                    --要访问的数据库，用户的密码
+GO
+
+
+
+
