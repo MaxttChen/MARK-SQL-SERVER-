@@ -47,5 +47,19 @@
  --表里面的列.
  select * from INFORMATION_SCHEMA.COLUMNS
 ```
+***
+3.续1的跨服务器连接数据;发现两个数据库的排序不一致导致能关联数据
+数据库1: xx
+数据库2:Chinese_PRC_CS_AS
+```
+--使用 collate 转换
+;WITH CTE AS (
+XXX
+)SELECT T1.*,T2.ITEM_CODE,T2.ITEM_NAME,T2.ITEM_SPECIFICATION FROM CTE  AS T1
+JOIN ITEM AS T2(NOLOCK) 
+ON  T1.NAME = T2.ITEM_NAME collate  Chinese_PRC_CS_AS 
+AND T1.cInvStd collate  Chinese_PRC_CS_AS = T2.ITEM_SPECIFICATION 
+AND T2.ITEM_CODE LIKE 'F%'
+```
 
-
+***
