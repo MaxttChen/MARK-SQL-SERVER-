@@ -9,7 +9,7 @@
 
 实现数据库1上可以直接访问数据库2上的表:
 
-
+```
  EXEC  sp_addlinkedserver
  @server='XDERP',   --链接服务器别名
  @srvproduct='',
@@ -24,8 +24,8 @@
   NULL,
  'sa',                     --要访问的数据库的用户              
  'xxxx'                    --要访问的数据库，用户的密码
-  GO
-
+  GO
+```
 
 
 ***
