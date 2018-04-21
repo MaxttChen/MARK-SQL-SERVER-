@@ -32,7 +32,7 @@
 
 2.查询数据的所有表,及每个表包含的数量
 
-
+```
  --表和表的行数.
  select object_name(id),rows,* from sysindexes 
  where indid in (0,1)
@@ -46,6 +46,6 @@
 
  --表里面的列.
  select * from INFORMATION_SCHEMA.COLUMNS
-
+```
 
 
