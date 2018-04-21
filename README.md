@@ -8,7 +8,8 @@
 数据库2:192.168.3.23\SQL2008R2
 
 实现数据库1上可以直接访问数据库2上的表:
-``
+
+<code>
 EXEC  sp_addlinkedserver
 @server='XDERP',   --链接服务器别名
 
@@ -29,13 +30,13 @@ EXEC sp_addlinkedsrvlogin
 'xxxx'                    --要访问的数据库，用户的密码
 GO
 
-``
+</code>
 
 ***
 
 2.查询数据的所有表,及每个表包含的数量
 
-``
+<code>
 --表和表的行数
 select object_name(id),rows,* from sysindexes 
 where indid in (0,1)
@@ -50,5 +51,5 @@ select * from INFORMATION_SCHEMA.TABLES
 --表里面的列
 select * from INFORMATION_SCHEMA.COLUMNS
 
-``
+</code>
 
