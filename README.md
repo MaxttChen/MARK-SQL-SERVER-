@@ -64,7 +64,7 @@ AND T2.ITEM_CODE LIKE 'F%'
 
 ***
 4. for xml path 的妙用,合并同元素  ,结合  STUFF(text_value,start,len,text_replace) 函数
-
+```
 SELECT B.sName,LEFT(StuList,LEN(StuList)-1) as hobby FROM (  
 SELECT sName,  
 STUFF((SELECT ','+hobby FROM student   
@@ -73,7 +73,7 @@ STUFF((SELECT ','+hobby FROM student
 FROM student A   
 GROUP BY sName  
 ) B    
-
+```
 
 
 
